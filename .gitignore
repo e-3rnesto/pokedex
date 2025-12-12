@@ -1,0 +1,102 @@
+# ============================
+#   Flutter / Dart
+# ============================
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-*.json
+.melos_tool/
+
+# No ignores:
+# - pubspec.yaml
+# - pubspec.lock (conviene versionarlo en apps)
+# - assets/*
+
+# ============================
+#   Android
+# ============================
+android/local.properties
+android/key.properties
+android/.gradle/
+android/.idea/
+android/captures/
+android/app/*.iml
+android/*.iml
+*.apk
+*.aab
+
+# Archivos generados por Gradle
+android/**/build/
+android/**/.cxx/
+
+# ============================
+#   iOS / macOS
+# ============================
+**/DerivedData/
+**/Pods/
+**/.symlinks/
+**/Flutter/App.framework
+**/Flutter/Flutter.framework
+**/Flutter/Flutter.podspec
+**/Flutter/Generated.xcconfig
+**/Flutter/ephemeral/
+**/*.mode1v3
+**/*.mode2v3
+**/*.perspectivev3
+**/*sync/
+**/*.xcuserstate
+**/*.moved-aside
+**/xcuserdata/
+**/*.xcscmblueprint
+*.ipa
+
+# Xcode workspaces (el proyecto .xcodeproj sí se versiona)
+*.xcworkspace
+
+# ============================
+#   Web
+# ============================
+web/.dart_tool/
+web/build/
+
+# ============================
+#   Windows / Linux / macOS (desktop)
+# ============================
+windows/flutter/ephemeral/
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+
+# ============================
+#   IDEs / Herramientas
+# ============================
+
+# VS Code
+.vscode/
+.history/
+
+# IntelliJ / Android Studio
+*.iml
+.idea/
+*.ipr
+*.iws
+.gradle/
+
+# ============================
+#   Sistema operativo
+# ============================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# ============================
+#   Logs / temporales
+# ============================
+*.log
+*.tmp
+*.swp
+*.swo
