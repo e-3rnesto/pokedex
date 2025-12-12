@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+// Modelo que representa un Pokémon capturado
 class CapturedPokemon {
   const CapturedPokemon({
     required this.name,

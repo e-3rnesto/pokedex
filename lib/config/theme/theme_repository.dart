@@ -14,12 +14,13 @@ class ThemeRepository {
   ThemeRepository(this._prefs);
 
   final SharedPreferences _prefs;
-
+  // Carga el tema guardado en SharedPreferences
   AppThemeMode loadTheme() {
     final raw = _prefs.getString(_themeKey);
     return AppThemeMode.fromStorage(raw ?? AppThemeMode.system.storageValue);
   }
 
+  // Guarda el tema en SharedPreferences
   Future<void> saveTheme(AppThemeMode mode) async {
     await _prefs.setString(_themeKey, mode.storageValue);
   }

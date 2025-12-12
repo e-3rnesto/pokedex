@@ -35,6 +35,7 @@ class PokedexNotifier extends Notifier<AsyncValue<List<CapturedPokemon>>> {
     state = await AsyncValue.guard(() async => repo.loadAll());
   }
 
+  // Actualiza el apodo y las notas de un Pokémon capturado
   Future<void> capture({
     required String name,
     required String nickname,
@@ -42,7 +43,7 @@ class PokedexNotifier extends Notifier<AsyncValue<List<CapturedPokemon>>> {
   }) async {
     final repo = ref.read(pokedexRepositoryProvider);
     final current = state.valueOrNull ?? [];
-
+    // Si ya está capturado, no hacer nada
     if (current.any((e) => e.name == name)) return;
 
     final updated = [
@@ -59,6 +60,7 @@ class PokedexNotifier extends Notifier<AsyncValue<List<CapturedPokemon>>> {
     await repo.saveAll(updated);
   }
 
+  // Actualiza el apodo y las notas de un Pokémon capturado
   Future<void> update({
     required String name,
     required String nickname,
@@ -66,7 +68,7 @@ class PokedexNotifier extends Notifier<AsyncValue<List<CapturedPokemon>>> {
   }) async {
     final repo = ref.read(pokedexRepositoryProvider);
     final current = state.valueOrNull ?? [];
-
+    // Mapea la lista actual y actualiza el Pokémon correspondiente
     final updated = current
         .map(
           (e) =>
@@ -79,6 +81,7 @@ class PokedexNotifier extends Notifier<AsyncValue<List<CapturedPokemon>>> {
   }
 
   Future<void> release(String name) async {
+    // Elimina el Pokémon capturado por su nombre
     final repo = ref.read(pokedexRepositoryProvider);
     final current = state.valueOrNull ?? [];
     final updated = current.where((e) => e.name != name).toList();

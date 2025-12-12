@@ -14,7 +14,9 @@ class PokemonDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Observa el detalle del Pokémon y su estado de captura
     final asyncDetail = ref.watch(pokemonDetailProvider(name));
+    // Verifica si el Pokémon está capturado
     final isCaptured = ref.watch(isCapturedProvider(name));
 
     return Scaffold(

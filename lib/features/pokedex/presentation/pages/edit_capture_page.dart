@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../providers/pokedex_notifier.dart';
 
+// Página para editar el apodo y notas de un Pokémon capturado
 class EditCapturePage extends ConsumerStatefulWidget {
   const EditCapturePage({super.key, required this.name});
   final String name;
@@ -26,14 +27,14 @@ class _EditCapturePageState extends ConsumerState<EditCapturePage> {
   @override
   Widget build(BuildContext context) {
     final captured = ref.watch(capturedByNameProvider(widget.name));
-
+    // Si el Pokémon no está capturado, muestra un mensaje
     if (captured == null) {
       return Scaffold(
         appBar: AppBar(title: const Text('Edit Capture')),
         body: const Center(child: Text('This Pokémon is not captured.')),
       );
     }
-
+    // Rellena los campos con los datos actuales si están vacíos
     _nicknameCtrl.text = _nicknameCtrl.text.isEmpty
         ? captured.nickname
         : _nicknameCtrl.text;
@@ -69,6 +70,7 @@ class _EditCapturePageState extends ConsumerState<EditCapturePage> {
               width: double.infinity,
               child: FilledButton(
                 onPressed: () async {
+                  // Actualiza el Pokémon capturado con los nuevos datos
                   await ref
                       .read(pokedexProvider.notifier)
                       .update(

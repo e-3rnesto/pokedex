@@ -39,6 +39,7 @@ class _PokemonListPageState extends ConsumerState<PokemonListPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Observa el estado de la lista de pokemones
     final asyncState = ref.watch(pokemonListProvider);
 
     return Scaffold(

@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../config/constants/config.dart';
 
+// Proveedor de Dio configurado para la app
 final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(
     BaseOptions(

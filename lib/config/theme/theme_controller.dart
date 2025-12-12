@@ -7,6 +7,7 @@ final themeControllerProvider = NotifierProvider<ThemeController, AppThemeMode>(
 );
 
 class ThemeController extends Notifier<AppThemeMode> {
+  // Carga el tema guardado al iniciar la app
   @override
   AppThemeMode build() {
     final repo = ref.read(themeRepositoryProvider);
@@ -14,6 +15,7 @@ class ThemeController extends Notifier<AppThemeMode> {
     return repo.loadTheme();
   }
 
+  // Cambia el tema y lo guarda en SharedPreferences
   Future<void> setTheme(AppThemeMode mode) async {
     final repo = ref.read(themeRepositoryProvider);
     state = mode;

@@ -12,7 +12,9 @@ class PokemonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Color de fondo de la tarjeta
     final Color cardBackgroundColor = const Color.fromARGB(255, 214, 16, 16);
+    // Formatea el ID del Pokémon con ceros a la izquierda
     final String pokemonId = item.id.toString().padLeft(3, '0');
 
     // Usamos el color de la tarjeta para definir el color del texto de contraste

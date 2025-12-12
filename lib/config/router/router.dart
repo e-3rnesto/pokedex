@@ -9,6 +9,7 @@ import 'package:pokedex_app/features/settings/presentation/settings_page.dart';
 GoRouter buildRouter() {
   return GoRouter(
     routes: [
+      //ruta default a la lista de pokemones
       GoRoute(
         path: '/',
         builder: (context, state) => const PokemonListPage(),
@@ -20,6 +21,7 @@ GoRouter buildRouter() {
               return PokemonDetailPage(name: name);
             },
           ),
+          // detalle del pokemon
           GoRoute(
             path: 'pokedex',
             builder: (context, state) => const PokedexPage(),
@@ -33,6 +35,7 @@ GoRouter buildRouter() {
               ),
             ],
           ),
+          // pagina de configuraciones
           GoRoute(path: 'settings', builder: (_, __) => const SettingsPage()),
         ],
       ),

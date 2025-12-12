@@ -10,6 +10,7 @@ class PokedexPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Obtiene la lista de pokemones capturados
     final asyncList = ref.watch(pokedexProvider);
 
     return Scaffold(

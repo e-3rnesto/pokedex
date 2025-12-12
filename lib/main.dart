@@ -8,8 +8,9 @@ import 'core/local/shared_prefs_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  // Inicializa SharedPreferences antes de ejecutar la app
   final prefs = await SharedPreferences.getInstance();
+  // Mantiene la pantalla de splash hasta que la app esté lista
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   //para leer archivo de variables de entorno

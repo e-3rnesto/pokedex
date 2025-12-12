@@ -18,9 +18,13 @@ class PokedexCapturedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Obtiene el tema actual
     final theme = Theme.of(context);
+    // Determina si el tema es oscuro
     final isDark = theme.brightness == Brightness.dark;
+    // Color principal para el diseño
     final color = const Color.fromARGB(255, 214, 16, 16);
+    // Color para las notas
     final noteColor = isDark
         ? theme.colorScheme.onSurface.withOpacity(0.6)
         : Colors.grey.shade700;

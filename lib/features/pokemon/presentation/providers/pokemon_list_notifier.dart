@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/pokemon_repository_impl.dart';
 import '../../domain/models/pokemon_list_item.dart';
 
+// Estado de la lista de pokemones
 class PokemonListState {
   const PokemonListState({
     required this.items,
@@ -14,7 +15,7 @@ class PokemonListState {
   final int offset;
   final bool hasNext;
   final bool isLoadingMore;
-
+  // Crea una copia del estado con valores opcionales modificados
   PokemonListState copyWith({
     List<PokemonListItem>? items,
     int? offset,
@@ -28,6 +29,7 @@ class PokemonListState {
   );
 }
 
+// Proveedor del estado de la lista de pokemones
 final pokemonListProvider =
     AsyncNotifierProvider<PokemonListNotifier, PokemonListState>(
       PokemonListNotifier.new,
@@ -35,7 +37,7 @@ final pokemonListProvider =
 
 class PokemonListNotifier extends AsyncNotifier<PokemonListState> {
   static const _pageSize = 20;
-
+  // Inicializa el estado de la lista de pokemones
   @override
   Future<PokemonListState> build() async {
     final repo = ref.read(pokemonRepositoryProvider);
@@ -48,6 +50,7 @@ class PokemonListNotifier extends AsyncNotifier<PokemonListState> {
     );
   }
 
+  // Refresca la lista de pokemones
   Future<void> refresh() async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
@@ -62,6 +65,7 @@ class PokemonListNotifier extends AsyncNotifier<PokemonListState> {
     });
   }
 
+  // Carga más pokemones para paginación
   Future<void> loadMore() async {
     final current = state.valueOrNull;
     if (current == null) return;

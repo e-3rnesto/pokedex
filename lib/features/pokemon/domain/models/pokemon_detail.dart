@@ -1,3 +1,4 @@
+//Representa el detalle de un Pokémon
 class PokemonDetail {
   const PokemonDetail({
     required this.id,

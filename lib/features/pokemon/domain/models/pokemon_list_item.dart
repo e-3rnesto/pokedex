@@ -1,3 +1,4 @@
+// Items de la lista de Pokémon
 class PokemonListItem {
   const PokemonListItem({
     required this.id,
